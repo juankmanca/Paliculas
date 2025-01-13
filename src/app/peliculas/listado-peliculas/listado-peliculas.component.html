@@ -1,0 +1,23 @@
+<h3>Peliculas</h3>
+
+<app-listado-generico [listado]="peliculas">
+  <ng-container contenido>
+    <div class="contenedor-peliculas">
+      @for(pelicula of peliculas; track $index){
+      <div class="pelicula">
+        <div>
+          <img [ngSrc]="pelicula.imagen" alt="{{pelicula.titulo}}" width="169" height="250" [priority]="$index == 0">
+        </div>
+        <div>
+          <p>Película: {{pelicula.titulo}}</p>
+          <p>Fecha lanzamiento: {{pelicula.fechaLanzamiento | date:"dd-MM-yyyy" }}</p>
+          <p>Price: {{pelicula.precio | currency }}</p>
+          <button mat-flat-button (click)="remover($index)">
+            <mat-icon>delete</mat-icon>
+            Eliminar</button>
+        </div>
+      </div>
+      }
+    </div>
+  </ng-container>
+</app-listado-generico>
