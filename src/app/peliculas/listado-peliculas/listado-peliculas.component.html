@@ -1,20 +1,30 @@
-<h3>Peliculas</h3>
-
 <app-listado-generico [listado]="peliculas">
   <ng-container contenido>
     <div class="contenedor-peliculas">
       @for(pelicula of peliculas; track $index){
       <div class="pelicula">
-        <div>
+        <!-- <div>
           <img [ngSrc]="pelicula.imagen" alt="{{pelicula.titulo}}" width="169" height="250" [priority]="$index == 0">
         </div>
         <div>
           <p>Película: {{pelicula.titulo}}</p>
           <p>Fecha lanzamiento: {{pelicula.fechaLanzamiento | date:"dd-MM-yyyy" }}</p>
           <p>Price: {{pelicula.precio | currency }}</p>
-          <button mat-flat-button (click)="remover($index)">
-            <mat-icon>delete</mat-icon>
-            Eliminar</button>
+     
+        </div> -->
+        <a>
+          @if(pelicula.imagen){
+          <img [src]="pelicula.imagen" alt="{{pelicula.titulo}}" width="169" height="250" >
+          } @else {
+          <img src="/no-image.jpg" alt="{{pelicula.titulo}}" width="169" height="250">
+          }
+        </a>
+        <p>
+          <a>{{pelicula.titulo}}</a>
+        </p>
+        <div>
+          <a mat-flat-button>Editar</a>
+          <button mat-flat-button type="button" color="warn">Borrar</button>
         </div>
       </div>
       }
