@@ -1,0 +1,11 @@
+<form (ngSubmit)="saveChanges()" [formGroup]="form" class="form-container">
+  <mat-form-field appearance="outline">
+    <mat-label>Nombre</mat-label>
+    <input matInput [formControl]="form.controls.nombre">
+    <mat-error>{{ObtenerErrorCampoNombre()}}</mat-error>
+  </mat-form-field>
+  <div class="buttons-container">
+    <button mat-flat-button type="submit" [disabled]="form.invalid">Save Changes</button>
+    <a mat-stroked-button routerLink="/generos">Cancelar</a>
+  </div>
+</form>

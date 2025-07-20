@@ -1,0 +1,18 @@
+<form (submit)="SaveChanges()" [formGroup]="form" class="form-container">
+  <mat-form-field appearance="outline">
+    <mat-label>Nombre</mat-label>
+    <input matInput [formControl]="form.controls.nombre">
+    <mat-error>{{GetErrorFieldName()}}</mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Fecha de Nacimiento</mat-label>
+    <input matInput [matDatepicker]="picker" [formControl]="form.controls.fechaNacimiento">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    <mat-error>{{GetErrorFieldBornDate()}}</mat-error>
+  </mat-form-field>
+  <div class="buttons-container">
+    <button mat-flat-button type="submit" [disabled]="form.invalid">Save Changes</button>
+    <a mat-stroked-button routerLink="/actores">Cancelar</a>
+  </div>
+</form>
