@@ -10,6 +10,6 @@ import { ActorCreacionDTO } from '../actores';
 })
 export class CrearActoresComponent {
   SaveChanges(actor: ActorCreacionDTO){
-    console.log(actor.fechaNacimiento.getDate());
+    console.log(actor);
   }
 }

@@ -12,7 +12,7 @@ export class EditarActoresComponent {
   @Input({transform: numberAttribute})
   id!: number
 
-  actor: ActorDTO = {id:1, nombre: 'Tom', fechaNacimiento: new Date()};
+  actor: ActorDTO = {id:1, nombre: 'Tom', fechaNacimiento: new Date(), foto: 'https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2014/12/425216-critica-6-heroes-fusion-marvel-disney.jpg'};
 
   SaveChanges(actor: ActorCreacionDTO){
     console.log(actor);

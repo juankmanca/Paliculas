@@ -11,6 +11,9 @@
     <mat-datepicker #picker></mat-datepicker>
     <mat-error>{{GetErrorFieldBornDate()}}</mat-error>
   </mat-form-field>
+  <div>
+    <app-input-img titulo="Foto del actor" [imageUrl]="modelo?.foto" (imageSelected)="imageSelected($event)"></app-input-img>
+  </div>
   <div class="buttons-container">
     <button mat-flat-button type="submit" [disabled]="form.invalid">Save Changes</button>
     <a mat-stroked-button routerLink="/actores">Cancelar</a>
