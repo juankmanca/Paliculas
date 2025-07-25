@@ -1,0 +1,11 @@
+<div leaflet 
+     [leafletOptions]="options" 
+     [leafletZoom]="options.zoom" 
+     [leafletCenter]="options.center"
+     [leafletLayers]="capas"
+     (leafletClick)="onMapClick($event)"
+     style="width: 300px; height: 300px;"
+      (leafletMapReady)="onMapReady($event)"
+     >
+
+</div>
