@@ -1,6 +1,7 @@
 import { Component, Input, numberAttribute } from '@angular/core';
 import { PeliculaDTO } from '../peliculas';
 import { FormularioPeliculasComponent } from "../formulario-peliculas/formulario-peliculas.component";
+import { SelectorMultipleModeloDto } from '../../compartidos/componentes/selector-multiple/SelectorMultipleModelo';
 
 @Component({
   selector: 'app-editar-peliculas',
@@ -11,6 +12,16 @@ import { FormularioPeliculasComponent } from "../formulario-peliculas/formulario
 export class EditarPeliculasComponent {
   @Input({transform: numberAttribute})
   id!: number
+
+    SelectedGenres: SelectorMultipleModeloDto[] = [
+      { key: 1, value: 'Acción' },
+    ];
+  
+    notSelectedGenres: SelectorMultipleModeloDto[] = [
+      { key: 2, value: 'Comedia' },
+      { key: 3, value: 'Drama' },
+      { key: 4, value: 'Terror' }
+    ];
 
   pelicula: PeliculaDTO = {
     titulo: 'Pelicula de prueba',

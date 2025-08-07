@@ -9,15 +9,18 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { InputImgComponent } from '../../compartidos/componentes/input-img/input-img.component';
 import { PeliculaCreacionDTO, PeliculaDTO } from '../peliculas';
 import moment from 'moment';
+import { SelectorMultipleModeloDto } from '../../compartidos/componentes/selector-multiple/SelectorMultipleModelo';
+import { SelectorMultipleComponent } from '../../compartidos/componentes/selector-multiple/selector-multiple.component';
 
 @Component({
   selector: 'app-formulario-peliculas',
-  imports: [MatFormFieldModule, ReactiveFormsModule, MatInputModule, RouterLink, MatButtonModule, MatDatepickerModule, InputImgComponent],
+  imports: [MatFormFieldModule, ReactiveFormsModule, MatInputModule, RouterLink, MatButtonModule, MatDatepickerModule, InputImgComponent, SelectorMultipleComponent],
   templateUrl: './formulario-peliculas.component.html',
   styleUrl: './formulario-peliculas.component.css'
 })
 export class FormularioPeliculasComponent {
- 
+   @Input({required: true}) selectedGenres: SelectorMultipleModeloDto[] = [];
+   @Input({required: true}) notSelectedGenres: SelectorMultipleModeloDto[] = [];
 
    @Input() modelo?: PeliculaDTO;
   @Output() onSave = new EventEmitter<PeliculaDTO>();
@@ -46,6 +49,8 @@ export class FormularioPeliculasComponent {
     if (this.form.valid) {
       const pelicula = this.form.value as PeliculaCreacionDTO;
       pelicula.fechaEstreno = moment(pelicula.fechaEstreno).toDate();
+      const genresIds = this.selectedGenres.map(g => g.key);
+      pelicula.generosIds = genresIds.length > 0 ? genresIds : undefined;
       this.onSave.emit(this.form.value as PeliculaDTO);
     } else {
       return;

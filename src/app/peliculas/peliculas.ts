@@ -11,4 +11,5 @@ export interface PeliculaCreacionDTO {
   fechaEstreno: Date;
   trailer: string;
   poster: string;
+  generosIds?: number[];
 }

@@ -15,14 +15,20 @@
 
   <mat-form-field appearance="outline">
     <mat-label>Trailer</mat-label>
-    <input matInput [formControl]="form.controls.trailer" type="url">  
+    <input matInput [formControl]="form.controls.trailer" type="url">
   </mat-form-field>
 
-  <app-input-img titulo="poster de la pelicula" [imageUrl]="modelo?.poster" (imageSelected)="archivoSeleccionado($event)" ></app-input-img>
+  <app-input-img titulo="poster de la pelicula" [imageUrl]="modelo?.poster"
+    (imageSelected)="archivoSeleccionado($event)"></app-input-img>
+
+  <h4>Seleccione los géneros</h4>
+  <app-selector-multiple [notSelected]="notSelectedGenres" [selected]="selectedGenres"></app-selector-multiple>
 
   <div class="contenedores-botones">
-    <button mat-stroked-button color="primary" style="margin-right: 20px;" type="button" (click)="saveChanges()">Guardar</button>
+    <button mat-stroked-button color="primary" style="margin-right: 20px;" type="button"
+      (click)="saveChanges()">Guardar</button>
     <button mat-stroked-button routerLink="/">Cancelar</button>
   </div>
+
 
 </form>

@@ -1,2 +1,4 @@
 <h2>Formaulario peliculas</h2>
-<app-formulario-peliculas (onSave)="saveChanges($event)"></app-formulario-peliculas>
+<app-formulario-peliculas [selectedGenres]="SelectedGenres" 
+[notSelectedGenres]="notSelectedGenres" 
+(onSave)="saveChanges($event)"></app-formulario-peliculas>
